@@ -1,0 +1,102 @@
+/** 1. reset css e estilos globais*/
+:root {
+    --cor-fundo:#f0f2f5;
+    --cor--branco: #ffffff;
+    --cor--texto-primario: #1c1e21;
+    --cor-texto-secundario: #606770;
+    --cor-borda: #dcdfe3;
+    --cor-acento: #007bff;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
+    background-color: var(--cor-fundo);
+
+    /* Centralizando o componente na página para visualizaçâo */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+    /* 2. Estilos do Componente Principal: .Card */
+    .card{
+        background-color: var (var(--cor--branco));
+        width: 320px;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        /* A magica da animação começa aqui */
+        transition: transform 0.3s ease,box-shadow  0.3s ease;
+        /* Esconder qualquer conteúdo filho que possivelmente saia dos limites do card */
+        overflow: hidden;
+        text-align: center;
+    }
+    
+/* 4. Efeito hover no card */
+.card:hover{
+    transform: translateY(-10px); /*Mover o card 10px para cima*/
+    box-shadow: 0 16px 32px rgba(0, 0,0,0.2);
+
+}
+/* 5. Estilos da imagem do Card   */
+.card_image-container{
+    width: 100%;
+    height: 200px; /*Altura fixa para o container da imagem*/
+}
+.card_image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /*Garante quer a imagem cubra todo o container*/
+}
+/* 6.Estilo da informação(Nome, título, social) */
+.card_info{
+    padding: 24px;
+}
+.card_name{
+    font-size: 1.5rem;
+    color: var(--cor --cor--texto-primario);
+    margin-bottom: 8px;
+}
+.card_title{
+    font-size: 1rem;
+    color: var(--cor-texto-secundario);
+    margin-bottom: 16px;
+}
+/* 7.Estilo dos ícones sociais(utilizando flexbox) */ 
+.card_social{
+    display: flex; /*Ativa o flex box*/
+    justify-content: center;/*Centraliza os itens no eixo principal (horizontal)*/
+    gap: 16px; /*Espaçamento entre os ícones*/
+}
+.card_social a{
+    display: flex; /*Ativa o flexbox para os links */
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: var(--cor-acento);
+    border: 2px solid var(--cor-acento);
+    border-radius: 50%;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.card_social a:hover{
+    background-color: var(--cor-acento);
+    color: var(--cor--branco);
+    border-color: var(--cor-acento);
+}
+/* *7. Design Responsivo (nossa primerira media query) */
+@media (max-width:400px){
+    .card {
+        width: 90%; /*o card ocupará 90% da largura da tela*/
+    }
+}
